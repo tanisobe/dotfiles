@@ -29,12 +29,16 @@ if has('vim_starting')
        call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neosnippet.git'
+NeoBundle 'glidenote/memolist'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'honza/snipmate-snippets.git'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'panozzaj/vim-autocorrect'
 
 "------------ memolist ------------
 let g:memolist_path = "~/Dropbox/memo"
@@ -88,8 +92,20 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 let g:vimwiki_list = [{'path': '~/Dropbox/vimwiki', 'path_html': '~/Dropbox/vimwiki/html'}]
 
 "--------quickrun------------
-"
+
+
+"--------autocorrect-------
+"auto correct有効化
+noremap :s :set spell
+"auto correct無効化
+noremap :ns :set nospell
+"-------vimfiler--------
+"use VimFiler
+noremap :e :VimFiler
+"vimfiler in another window
+noremap :es :VimFiler -split -simple -winwidth=35 -no-quit 
+"------alias----------
+"In insert mode: map C-c to Esc
+imap <C-c> <Esc>
 filetype plugin on
 filetype indent on
-
-"command alias
