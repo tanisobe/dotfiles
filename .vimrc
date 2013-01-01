@@ -103,7 +103,12 @@ noremap :ns :set nospell
 "use VimFiler
 noremap :e :VimFiler
 "vimfiler in another window
-noremap :es :VimFiler -split -simple -winwidth=35 -no-quit 
+noremap :es :VimFiler -split -simple -winwidth=30 -no-quit 
+"------vimshell-----
+let g:vimshell_interactive_update_time = 10
+nnoremap <silent> vs :VimShell<CR>
+nnoremap <silent> vsc :VimShellCreate<CR>
+nnoremap <silent> vp :VimShellPop<CR>
 "------alias----------
 "In insert mode: map C-c to Esc
 imap <C-c> <Esc>
