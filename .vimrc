@@ -83,7 +83,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'honza/snipmate-snippets.git'
+"NeoBundle 'honza/snipmate-snippets.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'panozzaj/vim-autocorrect'
 NeoBundle 'klen/python-mode'
@@ -91,6 +91,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
+NeoBundle 'vimwiki/vimwiki'
 
 nnoremap <silent> vp :VimShellPop<CR>
 
