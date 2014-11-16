@@ -1,0 +1,16 @@
+[merge]
+ff = false
+[pull]
+rebase = true
+[core]
+editor = vi
+[color]
+diff = auto
+status = auto
+branch = auto
+[alias]
+ci = commit
+co = checkout
+st = status -s --branch
+wc = whatchanged
+diff = diff --histogram -U9999
