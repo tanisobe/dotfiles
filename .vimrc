@@ -40,6 +40,8 @@ set tabstop=2
 set shiftwidth=2
 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set softtabstop=2
+" leader
+let mapleader = ","
 
 " ステータスライン表示項目
 set statusline=%F%m%r%h%w 
@@ -56,19 +58,6 @@ set laststatus=2
 highlight zenkakuda ctermbg=7
 match zenkakuda /　/
 
-" golang setting
-autocmd BufNewFile,BufRead *.go set filetype=go
-" gocode
-set rtp+=$GOROOT/misc/vim
-if $GOPATH != ''
-	" gocode
-	set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
-	" golint
-	set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-	autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
-endif
-" 保存時自動で:Fmtを実行
-auto BufWritePre *.go Fmt
 " python setting
 "autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class tabstop=4 shiftwidth=4 softtabstop=4 expandtab
@@ -82,6 +71,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
 "NeoBundle 'honza/snipmate-snippets.git'
 NeoBundle 'thinca/vim-quickrun'
@@ -92,6 +82,7 @@ NeoBundle 'tpope/vim-git'
 NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'vimwiki/vimwiki'
+NeoBundle 'fatih/vim-go'
 
 nnoremap <silent> vp :VimShellPop<CR>
 
@@ -167,6 +158,24 @@ noremap :nssp :set nospell
 noremap :e :VimFiler
 "vimfiler in another window
 noremap :es :VimFiler -split -simple -winwidth=20 -no-quit 
+"-------vim-go----------
+let g:go_bin_path = expand("~/.go/bin")
+let g:go_play_open_browser = 0
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_snippet_engine = "neosnippet"
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gl :GoLint<CR>
 "------alias----------
 "In insert mode: map C-c to Esc
 imap <C-c> <Esc>
