@@ -14,3 +14,6 @@ co = checkout
 st = status -s --branch
 wc = whatchanged
 diff = diff --histogram -U9999
+[user]
+	name = tanisobe
+	email = tanisobe@gmali.com

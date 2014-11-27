@@ -159,7 +159,7 @@ noremap :e :VimFiler
 "vimfiler in another window
 noremap :es :VimFiler -split -simple -winwidth=20 -no-quit 
 "-------vim-go----------
-let g:go_bin_path = expand("~/.go/bin")
+let g:go_bin_path = expand("~/go/bin")
 let g:go_play_open_browser = 0
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 1
