@@ -65,24 +65,27 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 " NeoBundle
 if has('vim_starting')
        set runtimepath+=~/.vim/bundle/neobundle.vim/
-       call neobundle#rc(expand('~/.vim/bundle/'))
-endif
+       call neobundle#begin(expand('~/.vim/bundle/'))
+       NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/unite.vim'
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler'
-"NeoBundle 'honza/snipmate-snippets.git'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'panozzaj/vim-autocorrect'
-NeoBundle 'klen/python-mode'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-git'
-NeoBundle 'scrooloose/syntastic.git'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'vimwiki/vimwiki'
-NeoBundle 'fatih/vim-go'
+       NeoBundle 'Shougo/unite.vim'
+       NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+       NeoBundle 'Shougo/neosnippet'
+       NeoBundle 'Shougo/neosnippet-snippets'
+       NeoBundle 'Shougo/vimfiler'
+       "NeoBundle 'honza/snipmate-snippets.git'
+       NeoBundle 'thinca/vim-quickrun'
+       NeoBundle 'panozzaj/vim-autocorrect'
+       NeoBundle 'klen/python-mode'
+       NeoBundle 'tpope/vim-fugitive'
+       NeoBundle 'tpope/vim-git'
+       NeoBundle 'scrooloose/syntastic.git'
+       NeoBundle 'jiangmiao/simple-javascript-indenter'
+       NeoBundle 'vimwiki/vimwiki'
+       NeoBundle 'fatih/vim-go'
+
+       call neobundle#end()
+endif
 
 nnoremap <silent> vp :VimShellPop<CR>
 
