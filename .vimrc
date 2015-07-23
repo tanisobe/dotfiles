@@ -83,7 +83,7 @@ if has('vim_starting')
        NeoBundle 'jiangmiao/simple-javascript-indenter'
        NeoBundle 'vimwiki/vimwiki'
        NeoBundle 'fatih/vim-go'
-
+       NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
        call neobundle#end()
 endif
 
@@ -181,6 +181,9 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>gl :GoLint<CR>
 "------alias----------
 "In insert mode: map C-c to Esc
+"------gist-vim-------
+"let g:gist_api_url = 'http://your-github-enterprise-domain/api/v3'
+let g:gist_open_browser_after_post = 1
 imap <C-c> <Esc>
 filetype plugin on
 filetype indent on
