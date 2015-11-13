@@ -74,6 +74,7 @@ if has('vim_starting')
        NeoBundle 'Shougo/neosnippet'
        NeoBundle 'Shougo/neosnippet-snippets'
        NeoBundle 'Shougo/vimfiler'
+       NeoBundle 'davidhalter/jedi-vim'
        "NeoBundle 'honza/snipmate-snippets.git'
        NeoBundle 'thinca/vim-quickrun'
        NeoBundle 'panozzaj/vim-autocorrect'
@@ -84,13 +85,17 @@ if has('vim_starting')
        NeoBundle 'vimwiki/vimwiki'
        NeoBundle 'fatih/vim-go'
        NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+       NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+           \ "autoload": {"insert": 1, "filetypes": ["python", "python3"]}}
        call neobundle#end()
 endif
 
 nnoremap <silent> vp :VimShellPop<CR>
 
-"------------ memolist ------------
-let g:memolist_path = "~/Dropbox/memo"
+" shebang
+autocmd BufNewFile *.py 0put =\"#!/usr/bin/python3\<nl>\"|$
+autocmd BufNewFile *.py 1put =\"# -*- coding: utf-8 -*-\"|$
+autocmd BufNewFile *.sh 0put =\"#!/bin/sh\<nl>\"|$
 
 "------------- Unite ------------
 " 入力モードで開始
@@ -132,6 +137,16 @@ noremap :uffr :UniteWithBufferDir file_rec -buffer-name=file_rec
 	let g:neocomplcache_enable_camel_case_completion = 1
 	let g:neocomplcache_enable_underbar_completion = 1
 "endif
+"---------- jedi-vim -------------
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 "---------- neosnippet -----------
 " C-k to select and expand a snippet from Neocomplcache popup
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
