@@ -61,6 +61,7 @@ match zenkakuda /　/
 " python setting
 "autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+let g:pymode_python = 'python3'
 
 " NeoBundle
 if has('vim_starting')
