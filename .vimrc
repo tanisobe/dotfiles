@@ -77,7 +77,6 @@ if has('vim_starting')
        "NeoBundle 'honza/snipmate-snippets.git'
        NeoBundle 'thinca/vim-quickrun'
        NeoBundle 'panozzaj/vim-autocorrect'
-       NeoBundle 'klen/python-mode'
        NeoBundle 'tpope/vim-fugitive'
        NeoBundle 'tpope/vim-git'
        NeoBundle 'scrooloose/syntastic.git'
